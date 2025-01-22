@@ -1,0 +1,130 @@
+-- Criando o banco de dados
+CREATE DATABASE LojaJogos;
+USE LojaJogos;
+
+-- Tabela de clientes
+CREATE TABLE Clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefone VARCHAR(15),
+    data_registro DATE DEFAULT CURRENT_DATE
+);
+
+-- Tabela de funcionários
+CREATE TABLE Funcionarios (
+    id_funcionario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cargo VARCHAR(50) NOT NULL,
+    salario DECIMAL(10, 2),
+    data_contratacao DATE DEFAULT CURRENT_DATE
+);
+
+-- Tabela de jogos
+CREATE TABLE Jogos (
+    id_jogo INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    plataforma VARCHAR(50) NOT NULL,
+    genero VARCHAR(50),
+    ano_lancamento YEAR,
+    preco_compra DECIMAL(10, 2) DEFAULT 0,
+    preco_venda DECIMAL(10, 2) NOT NULL,
+    estoque INT DEFAULT 0
+);
+
+-- Tabela de compras (jogos comprados de clientes)
+CREATE TABLE Compras (
+    id_compra INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_funcionario INT NOT NULL,
+    id_jogo INT NOT NULL,
+    data_compra DATE DEFAULT CURRENT_DATE,
+    preco DECIMAL(10, 2) NOT NULL,
+    quantidade INT NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_funcionario) REFERENCES Funcionarios(id_funcionario),
+    FOREIGN KEY (id_jogo) REFERENCES Jogos(id_jogo)
+);
+
+-- Tabela de vendas (jogos vendidos para clientes)
+CREATE TABLE Vendas (
+    id_venda INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_funcionario INT NOT NULL,
+    id_jogo INT NOT NULL,
+    data_venda DATE DEFAULT CURRENT_DATE,
+    preco DECIMAL(10, 2) NOT NULL,
+    quantidade INT NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_funcionario) REFERENCES Funcionarios(id_funcionario),
+    FOREIGN KEY (id_jogo) REFERENCES Jogos(id_jogo)
+);
+
+-- Inserindo dados iniciais na tabela de clientes
+INSERT INTO Clientes (nome, email, telefone) VALUES
+('Carlos Santos', 'carlos@email.com', '99999-1111'),
+('Ana Lima', 'ana@email.com', '99999-2222'),
+('João Silva', 'joao@email.com', '99999-3333');
+
+-- Inserindo dados iniciais na tabela de funcionários
+INSERT INTO Funcionarios (nome, cargo, salario) VALUES
+('Marcos Oliveira', 'Vendedor', 2500.00),
+('Laura Almeida', 'Gerente', 4000.00);
+
+-- Inserindo dados iniciais na tabela de jogos
+INSERT INTO Jogos (titulo, plataforma, genero, ano_lancamento, preco_compra, preco_venda, estoque) VALUES
+('The Last of Us', 'PlayStation 4', 'Ação/Aventura', 2013, 50.00, 120.00, 10),
+('Minecraft', 'PC', 'Sandbox', 2011, 20.00, 60.00, 15),
+('Halo Infinite', 'Xbox Series X', 'FPS', 2021, 80.00, 150.00, 8),
+('Mario Kart 8 Deluxe', 'Nintendo Switch', 'Corrida', 2017, 30.00, 100.00, 12);
+
+-- Registrando compras de jogos (clientes vendendo para a loja)
+INSERT INTO Compras (id_cliente, id_funcionario, id_jogo, preco, quantidade) VALUES
+(1, 1, 1, 50.00, 2), -- Carlos vendeu 2 cópias de "The Last of Us"
+(2, 2, 3, 80.00, 1), -- Ana vendeu 1 cópia de "Halo Infinite"
+(3, 1, 4, 30.00, 3); -- João vendeu 3 cópias de "Mario Kart 8 Deluxe"
+
+-- Registrando vendas de jogos (loja vendendo para clientes)
+INSERT INTO Vendas (id_cliente, id_funcionario, id_jogo, preco, quantidade) VALUES
+(2, 1, 1, 120.00, 1), -- Ana comprou 1 cópia de "The Last of Us"
+(3, 2, 2, 60.00, 1), -- João comprou 1 cópia de "Minecraft"
+(1, 1, 4, 100.00, 2); -- Carlos comprou 2 cópias de "Mario Kart 8 Deluxe"
+
+-- Consultas úteis para o portfólio
+-- 1. Listar todos os jogos disponíveis para venda
+SELECT * FROM Jogos WHERE estoque > 0;
+
+-- 2. Verificar vendas realizadas por funcionário
+SELECT 
+    f.nome AS funcionario,
+    COUNT(v.id_venda) AS total_vendas,
+    SUM(v.preco * v.quantidade) AS total_receita
+FROM Vendas v
+JOIN Funcionarios f ON v.id_funcionario = f.id_funcionario
+GROUP BY f.nome;
+
+-- 3. Verificar compras realizadas por clientes
+SELECT 
+    c.nome AS cliente,
+    COUNT(co.id_compra) AS total_compras,
+    SUM(co.preco * co.quantidade) AS total_gasto
+FROM Compras co
+JOIN Clientes c ON co.id_cliente = c.id_cliente
+GROUP BY c.nome;
+
+-- 4. Listar estoque atual de cada jogo
+SELECT 
+    titulo, 
+    plataforma, 
+    estoque 
+FROM Jogos
+ORDER BY estoque DESC;
+
+-- 5. Verificar o lucro total por jogo
+SELECT 
+    j.titulo,
+    SUM(v.preco * v.quantidade) - SUM(co.preco * co.quantidade) AS lucro
+FROM Jogos j
+LEFT JOIN Vendas v ON j.id_jogo = v.id_jogo
+LEFT JOIN Compras co ON j.id_jogo = co.id_jogo
+GROUP BY j.id_jogo, j.titulo;
