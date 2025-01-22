@@ -1,11 +1,12 @@
-# Projetos de Portfólio
-Nesta seção, apresento projetos que destacam minhas habilidades práticas em análise de dados utilizando ferramentas e linguagens como SQL, Power BI e Python. Cada projeto foi desenvolvido para resolver problemas reais ou simulados, envolvendo desde a coleta e limpeza de dados até a análise e visualização de insights acionáveis.
+# Portfolio Projects
+In this section, I showcase several real and simulated projects that demonstrate my skills as a Data Analyst. These projects utilize SQL, Power BI, and Python to solve complex data problems, providing actionable insights through data exploration, manipulation, and visualization.
 
-Os projetos incluem:
+The projects include:
 
-- Consultas SQL: Criação de bancos de dados, manipulação de grandes volumes de dados e otimização de consultas para análises eficientes.
-  
-- Dashboards Interativos em Power BI: Visualizações dinâmicas para comunicação clara de métricas e tendências de negócios.
-  
-- Análises em Python: Uso de bibliotecas como Pandas, Matplotlib e Scikit-learn para exploração, modelagem preditiva e automação de processos analíticos.
-Confira os detalhes de cada projeto para entender como aplico técnicas avançadas de análise de dados para gerar valor em diferentes cenários.
+- SQL Projects: Database creation, querying large datasets, and optimizing SQL queries for efficient data analysis.
+
+- Power BI Dashboards: Development of interactive and dynamic dashboards to effectively communicate business metrics and trends.
+
+- Python Analysis: Data exploration, predictive modeling, and automation using libraries such as Pandas, Matplotlib, and Scikit-learn.
+
+Explore each project to see how I apply advanced data analysis techniques to extract value from data in different scenarios.
