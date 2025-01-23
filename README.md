@@ -6,9 +6,9 @@ Explore each project to see how I apply advanced data analysis techniques to ext
 The projects include:
 
 - SQL Projects: Database creation, querying datasets, and optimizing SQL queries for efficient data analysis.
-  - [Game Store](https://github.com/andre-pedro/portfolio/blob/main/game-store)
+  - [Game Store](https://github.com/andre-pedro/portfolio/blob/main/game-store.sql)
   - [Library](https://github.com/andre-pedro/portfolio/blob/main/library.sql)
-  - 
+  
 - Power BI Dashboards: Development of interactive and dynamic dashboards to effectively communicate business metrics and trends.
 
 - Python Analysis: Data exploration, predictive modeling, and automation using libraries such as Pandas, Matplotlib, and Scikit-learn.
