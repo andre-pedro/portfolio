@@ -7,7 +7,7 @@ The projects include:
 
 - SQL Projects: Database creation, querying datasets, and optimizing SQL queries for efficient data analysis.
   - [Game Store](https://github.com/andre-pedro/portfolio/blob/main/game-store)
-  - [Library](https://github.com/andre-pedro/portfolio/blob/main/library)
+  - [Library](https://github.com/andre-pedro/portfolio/blob/main/library.sql)
   - 
 - Power BI Dashboards: Development of interactive and dynamic dashboards to effectively communicate business metrics and trends.
 
