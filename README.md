@@ -1,7 +1,7 @@
 # Portfolio Projects
-In this section, I showcase several real and simulated projects that demonstrate my skills as a Data Analyst. These projects utilize SQL, Power BI, and Python to solve complex data problems, providing actionable insights through data exploration, manipulation, and visualization.
+In this section, I present a collection of projects that highlight my skills as a Data Analyst. Using tools such as SQL, Power BI, and Python, these projects address complex data challenges and deliver actionable insights through data exploration, transformation, and visualization.
 
-Explore each project to see how I apply advanced data analysis techniques to extract value from data in different scenarios.
+Each project demonstrates how I apply advanced analytical techniques to uncover patterns, generate meaningful insights, and support data-driven decision-making across diverse scenarios.
 
 The projects include:
 
