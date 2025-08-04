@@ -73,9 +73,9 @@ INSERT INTO Customers (name, email, phone) VALUES
 
 -- Insert sample employees
 INSERT INTO Employees (name, role, salary) VALUES
-('Emília Costa', 'Sales Representative', 2500.00),
-('Miguel Santos', 'Store Manager', 4000.00),
-('Sara Rocha', 'Cashier', 2000.00);
+('Emília Costa', 'Sales Representative', 1400),
+('Miguel Santos', 'Store Manager', 1800),
+('Sara Rocha', 'Cashier', 1200);
 
 -- Insert sample games
 INSERT INTO Games (title, platform, genre, release_year, purchase_price, selling_price, stock) VALUES
