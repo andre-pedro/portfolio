@@ -66,16 +66,16 @@ CREATE TABLE Sales (
 
 -- Insert sample customers
 INSERT INTO Customers (name, email, phone) VALUES
-('John Doe', 'john.doe@example.com', '123-456-7890'),
-('Jane Smith', 'jane.smith@example.com', '987-654-3210'),
-('Alice Johnson', 'alice.johnson@example.com', '456-123-7890'),
-('Bob Brown', 'bob.brown@example.com', '321-987-6540');
+('João Silva', '*****@*****.com', '000000000'),
+('Maria Sousa', '*****@*****.com', '000000000'),
+('Ana Oliveira', '*****@*****.com', '000000000'),
+('Diogo Lima', '*****@*****.com', '000000000');
 
 -- Insert sample employees
 INSERT INTO Employees (name, role, salary) VALUES
-('Emily Davis', 'Sales Representative', 2500.00),
-('Michael Wilson', 'Store Manager', 4000.00),
-('Sarah Lee', 'Cashier', 2000.00);
+('Emília Costa', 'Sales Representative', 2500.00),
+('Miguel Santos', 'Store Manager', 4000.00),
+('Sara Rocha', 'Cashier', 2000.00);
 
 -- Insert sample games
 INSERT INTO Games (title, platform, genre, release_year, purchase_price, selling_price, stock) VALUES
