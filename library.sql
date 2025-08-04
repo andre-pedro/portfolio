@@ -66,9 +66,9 @@ INSERT INTO Livros (Titulo, Genero, AnoPublicacao, AutorID, QuantidadeTotal, Qua
 
 -- Inserindo usuários
 INSERT INTO Usuarios (Nome, Email, Telefone) VALUES 
-('Ana Silva', 'ana.silva@gmail.com', '123456789'),
-('João Oliveira', 'joao.oliveira@gmail.com', '987654321'),
-('Mariana Costa', 'mariana.costa@gmail.com', '555123456');
+('Ana Silva', '*****@*****.com', '*********'),
+('João Oliveira', '*****@*****.com', '*********'),
+('Mariana Costa', '*****@*****.com', '*********');
 
 -- Inserindo aluguéis
 INSERT INTO Alugueis (UsuarioID, LivroID, DataAluguel) VALUES 
